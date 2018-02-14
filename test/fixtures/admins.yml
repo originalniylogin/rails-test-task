@@ -1,1 +1,3 @@
-# Empty
+overlord:
+  login: admin
+  password_digest: <%= Admin.digest('admin') %>

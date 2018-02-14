@@ -5,9 +5,15 @@ class Admin < ApplicationRecord
             length: { maximum: 32 },
             uniqueness: true
 
+  has_secure_password
   validates :password,
             presence: true
 
-  has_secure_password
+  def Admin.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+
+    BCrypt::Password.create(string, cost: cost)
+  end
 
 end

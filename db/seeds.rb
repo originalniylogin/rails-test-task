@@ -5,7 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-event_handlers = EventHandler.create([
+Admin.create!(login: 'admin', password: 'admin')
+
+event_handlers = EventHandler.create!([
    {name: 'Михаил Филиппенко', description: 'fastreport.ru - работаем для программистов'},
    {name: 'Анастасия Осецкая', description: 'Основатель сообщества новаторов - Эволюция Сознания, организатор мероприятий, маркетолог, менеджер проектов.'}
 ])
