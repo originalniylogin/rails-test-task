@@ -1,15 +1,1 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  city: MyString
-  name: MyString
-  description: MyText
-  url: MyString
-  eventhandler: one
-
-two:
-  city: MyString
-  name: MyString
-  description: MyText
-  url: MyString
-  eventhandler: two
+# Empty
