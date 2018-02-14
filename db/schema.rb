@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20180214074950) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string "city"
+    t.string "location"
     t.string "name"
     t.text "description"
     t.string "url"

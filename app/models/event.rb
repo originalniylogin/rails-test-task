@@ -1,3 +1,3 @@
 class Event < ApplicationRecord
-  belongs_to :eventhandler
+  belongs_to :event_handler
 end
