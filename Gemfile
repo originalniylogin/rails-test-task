@@ -64,3 +64,6 @@ gem "twitter-bootstrap-rails"
 gem 'bcrypt'
 
 gem 'rails-controller-testing'
+
+gem 'will_paginate', '~> 3.1.1'
+gem 'will_paginate-bootstrap'
