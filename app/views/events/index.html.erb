@@ -10,18 +10,7 @@
       <h1>Мероприятия</h1>
     </div>
 
-    <div class="list-group">
-      <% @events.each do |event| %>
-        <%= link_to event_path(event), class: 'list-group-item' do %>
-          <h4 class="list-group-item-heading">
-            <%= event.name %>
-          </h4>
-
-          <p class="list-group-item-text">Sample Text</p>
-          <!--<%= link_to 'Просмотр', event_path(event), class: 'btn btn-primary' %>-->
-        <% end %>
-      <% end %>
-    </div>
+    <%= render partial: 'shared/events_list', locals: { events: @events } %>
 
     <%= will_paginate @events,
                       renderer: BootstrapPagination::Rails,

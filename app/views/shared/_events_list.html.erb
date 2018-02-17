@@ -1,0 +1,12 @@
+<div class="list-group">
+  <% @events.each do |event| %>
+    <%= link_to event_path(event), class: 'list-group-item' do %>
+      <h4 class="list-group-item-heading">
+        <%= event.name %>
+      </h4>
+
+      <p class="list-group-item-text"><%= event.starts_at %></p>
+      <p class="list-group-item-text"><%= event.location %></p>
+    <% end %>
+  <% end %>
+</div>

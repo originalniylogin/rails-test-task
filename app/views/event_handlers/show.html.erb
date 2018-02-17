@@ -1,14 +1,19 @@
-<%- model_class = EventHandler -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+<div class="block">
+  <div class="block-title">
+    <h2>
+      <strong><%= @event_handler.name %></strong>
+    </h2>
+  </div>
+
+  <p><%= @event_handler.description %></p>
+
+  <div class="block">
+    <div class="block-title">
+      <h3>Организованные мероприятия</h3>
+    </div>
+
+    <%= render partial: 'shared/events_list',
+               locals: { events: @events } %>
+  </div>
+
 </div>
-
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @event_handler.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @event_handler.description %></dd>
-</dl>
-
-<%= link_to t('.back', :default => t("helpers.links.back")),
-              event_handlers_path, :class => 'btn btn-default'  %>
