@@ -25,7 +25,6 @@ class AdminsLoginTest < ActionDispatch::IntegrationTest
     follow_redirect!
 
     assert_template 'admin/events/index'
-    assert_select 'a[href=?]', admin_login_path, count: 0
     assert_select 'a[href=?]', admin_logout_path
 
     delete admin_logout_path
@@ -34,7 +33,6 @@ class AdminsLoginTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
     follow_redirect!
 
-    assert_select 'a[href=?]', admin_login_path
     assert_select 'a[href=?]', admin_logout_path, count: 0
   end
 

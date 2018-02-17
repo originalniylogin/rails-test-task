@@ -2,8 +2,12 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   get 'welcome/index'
-  resources :event_handlers
-  resources :events
+  get '/events', to: 'events#index', as: :events
+  get '/events/:id', to: 'events#show', as: :event
+  get '/event_handlers', to: 'event_handlers#index', as: :event_handlers
+  get '/event_handlers/:id', to: 'event_handlers#show', as: :event_handler
+  get '/subscribe', to: 'subscribers#new', as: :new_subscriber
+  post '/subscribe', to: 'subscribers#create'
 
   namespace :admin do
     get    '/login',  to: 'sessions#new'

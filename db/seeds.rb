@@ -68,5 +68,5 @@ Event.create!(
                  ' кто на передовой блокчейн индустрии!',
     url: 'https://evo-events.timepad.ru/event/662591/',
     event_handler_id: event_handlers[1].id,
-    starts_at: DateTime.new(2018, 2, 26, 18)
+    starts_at: DateTime.new(2018, 2, 17, 18)
 )

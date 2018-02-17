@@ -67,3 +67,9 @@ gem 'rails-controller-testing'
 
 gem 'will_paginate', '~> 3.1.1'
 gem 'will_paginate-bootstrap'
+
+gem 'rails-i18n'
+
+gem 'sendgrid'
+gem 'sidekiq'
+gem 'redis-namespace'

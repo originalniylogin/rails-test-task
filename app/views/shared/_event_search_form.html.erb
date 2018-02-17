@@ -7,7 +7,7 @@
         Название
       </label>
       <div class="col-md-8">
-        <%= text_field_tag :name, params[:name], options: { class: 'form-control' } %>
+        <%= text_field_tag :name, params[:name], class: 'form-control' %>
       </div>
     </div>
 
@@ -16,7 +16,7 @@
         Место проведения
       </label>
       <div class="col-md-8">
-        <%= text_field_tag :location, params[:location], options: { class: 'form-control' } %>
+        <%= text_field_tag :location, params[:location], class: 'form-control' %>
       </div>
     </div>
 
@@ -25,7 +25,7 @@
         Организатор
       </label>
       <div class="col-md-8">
-        <%= text_field_tag :event_handler, params[:event_handler], options: { class: 'form-control' } %>
+        <%= text_field_tag :event_handler, params[:event_handler], class: 'form-control' %>
       </div>
     </div>
 
@@ -60,7 +60,7 @@
         <%= submit_tag 'Поиск', { name: nil, class: 'btn btn-sm btn-primary' } %>
 
         <%= link_to events_path do %>
-          <button class="btn btn-sm btn-warning" type="reset">Сбросить</button>
+          <button name="Сброс" type="reset" class="btn btn-sm btn-warning">Сброс</button>
         <% end %>
       </div>
     </div>

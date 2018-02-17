@@ -1,12 +1,13 @@
 <div class="row">
   <div class="col-md-4">
     <%= render 'shared/event_search_form' %>
+
+    <%= link_to 'Подписаться на рассылку о ближайших мероприятиях', subscribe_path %>
   </div>
 
   <div class="col-md-8">
-    <%- model_class = Event -%>
     <div class="page-header">
-      <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+      <h1>Мероприятия</h1>
     </div>
 
     <div class="list-group">
@@ -22,7 +23,11 @@
       <% end %>
     </div>
 
-    <%= will_paginate @events, renderer: BootstrapPagination::Rails %>
+    <%= will_paginate @events,
+                      renderer: BootstrapPagination::Rails,
+                      previous_label: 'Назад',
+                      next_label: 'Далее'
+    %>
 
   </div>
 </div>

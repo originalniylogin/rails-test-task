@@ -30,7 +30,7 @@ class EventsController < ApplicationController
     end
 
     # Pagination
-    @events = @events.paginate(:page => params[:page], :per_page => 1)
+    @events = @events.paginate(page: params[:page], per_page: 10)
   end
 
   def load_event

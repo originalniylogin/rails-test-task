@@ -1,0 +1,19 @@
+<div class="well col-md-4 col-md-offset-4">
+  <%= form_for @subscriber,
+               url: { action: 'create' },
+               html: { class: 'form-horizontal' } do |f| %>
+    <div class="form-group">
+      <label class="col-md-4 control-label">
+        <strong>Email</strong>
+      </label>
+
+      <div class="col-md-8">
+        <%= f.text_field :email, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= submit_tag 'Подписаться', { class: 'btn btn-primary' } %>
+    </div>
+  <% end %>
+</div>
