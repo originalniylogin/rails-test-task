@@ -8,6 +8,13 @@ class EventsController < ApplicationController
     load_event
   end
 
+  def download_ics
+    load_event
+    send_data generate_ics(@event),
+              type: 'text/calendar',
+              filename: "#{@event.name}.ics"
+  end
+
   private
 
   def load_events
@@ -35,6 +42,20 @@ class EventsController < ApplicationController
 
   def load_event
     @event ||= Event.find(params[:id])
+  end
+
+  def generate_ics(event)
+    cal = Icalendar::Calendar.new
+    cal.event do |e|
+      e.dtstart = Icalendar::Values::DateTime.new(event.starts_at)
+      e.dtend = Icalendar::Values::DateTime.new(event.starts_at)
+      e.summary = event.name
+      e.description = event.description
+      e.url = event.url
+      e.location = event.location
+    end
+
+    cal.to_ical
   end
 
 end

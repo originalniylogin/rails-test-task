@@ -73,3 +73,5 @@ gem 'rails-i18n'
 gem 'sendgrid'
 gem 'sidekiq'
 gem 'redis-namespace'
+
+gem 'icalendar'
