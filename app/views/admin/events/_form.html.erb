@@ -1,69 +1,92 @@
-<%= form_for @event, :html => { :class => "form-horizontal event" } do |f| %>
+<%= form_for [:admin, @event],
+             html: { class: 'form-horizontal' } do |f| %>
+  <div class="form-group">
+    <label class="col-md-4 control-label">
+      <strong>Название</strong>
+    </label>
 
-  <% if @event.errors.any? %>
-    <div id="error_expl" class="panel panel-danger">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h3>
+    <div class="col-md-8">
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label">
+      <strong>Место</strong>
+    </label>
+
+    <div class="col-md-8">
+      <%= f.text_field :location, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label">
+      <strong>Организатор</strong>
+    </label>
+
+    <div class="col-md-8">
+      <%= f.select 'event_handler_id',
+                   EventHandler.all.collect { |eh| [ eh.name, eh.id ]},
+                   { include_blank: true },
+                   { class: 'form-control' } %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label">
+      <strong>Начало</strong>
+    </label>
+
+    <div class="col-md-8">
+        <%= f.text_field :starts_at, class: 'form-control',
+                         value: @event.starts_at ? @event.starts_at.strftime("%d.%m.%Y %H:%M") : nil %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label">
+      <strong>Сайт</strong>
+    </label>
+
+    <div class="col-md-8">
+      <%= f.text_field :url, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label">
+      Обложка
+    </label>
+
+    <div class="col-md-8">
+      <div class="col-sm-2">
+        <%= image_tag @event.image.url(:thumb) %>
       </div>
-      <div class="panel-body">
-        <ul>
-        <% @event.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
+
+      <div class="col-sm-4">
+        <%= f.file_field :image %>
       </div>
     </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= f.label :location, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :location, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:location) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :name, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :name, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:name) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :description, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :description, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:description) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :url, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :url, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:url) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :event_handler_id, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :event_handler_id, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:event_handler_id) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :starts_at, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :starts_at, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:starts_at) %>
   </div>
 
   <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                admin_events_path, :class => 'btn btn-default' %>
+    <label class="col-md-4 control-label">
+      <strong>Описание</strong>
+    </label>
+
+    <div class="col-md-8">
+      <%= f.text_area :description, class: 'form-control' %>
     </div>
   </div>
 
+  <div class="form-controls">
+    <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
+  </div>
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready($(function () {
+      $('#event_starts_at').datetimepicker();
+  }))
+</script>

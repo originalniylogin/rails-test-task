@@ -75,3 +75,9 @@ gem 'sidekiq'
 gem 'redis-namespace'
 
 gem 'icalendar'
+
+gem 'paperclip', '~> 5.2.1'
+
+gem 'jquery-rails'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'

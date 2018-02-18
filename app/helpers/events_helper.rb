@@ -1,7 +1,7 @@
 module EventsHelper
 
   def event_description
-    @event.description.gsub! '\n', '<br />'
+    @event.description.gsub! '\r', '<br />'
   end
 
 end

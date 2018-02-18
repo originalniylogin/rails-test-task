@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180217100800) do
+ActiveRecord::Schema.define(version: 20180217205714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,12 @@ ActiveRecord::Schema.define(version: 20180217100800) do
     t.datetime "starts_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["event_handler_id"], name: "index_events_on_event_handler_id"
+    t.index ["name"], name: "index_events_on_name", unique: true
   end
 
   create_table "subscribers", force: :cascade do |t|

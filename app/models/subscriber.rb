@@ -23,7 +23,7 @@ class Subscriber < ApplicationRecord
     end
     future_events.each do |event|
       delay = event.starts_at - 1.days - DateTime.now
-      SubscriberMailer.delay_for(delay).notification_email
+      SubscriberMailer.delay_for(delay).notification_email(self, event)
     end
   end
 

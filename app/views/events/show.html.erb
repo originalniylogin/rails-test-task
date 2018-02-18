@@ -6,12 +6,11 @@
   </div>
 
   <div class="row">
-    <div class="col-md-6">
-      image
-      </p>
+    <div class="col-sm-6">
+      <%= image_tag @event.image.url(:medium) %>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-sm-6">
       <table class="table">
         <tr>
           <td><strong>Время</strong></td>
@@ -48,5 +47,5 @@
     <h3>Описание</h3>
   </div>
 
-  <p><%= simple_format(event_description) %></p>
+  <p><%= simple_format(@event.description) %></p>
 </div>
