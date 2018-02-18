@@ -17,12 +17,12 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= link_to event.id, event_path(event) %></td>
+        <td><%= link_to event.id, admin_event_path(event) %></td>
         <td><%= event.name %></td>
         <td><%= event.location %></td>
         <td><%= event.url %></td>
         <td><%= event.event_handler.name %></td>
-        <td><%= event.starts_at %></td>
+        <td><%=l event.starts_at %></td>
         <td><%=l event.created_at %></td>
         <td>
           <%= link_to 'Просмотр',

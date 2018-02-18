@@ -11,7 +11,8 @@ class EventHandlersController < ApplicationController
   private
 
   def load_event_handlers
-    @event_handlers = EventHandler.all
+    @event_handlers = EventHandler.where(nil)
+    @event_handlers = @event_handlers.ordered_by_date
 
     @event_handlers = @event_handlers.paginate(page: params[:page], per_page: 10)
   end

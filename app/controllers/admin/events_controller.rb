@@ -63,7 +63,11 @@ class Admin::EventsController < AdminController
   end
 
   def build_event
-    @event.attributes = event_params
+    if @event
+      @event.attributes = event_params
+    else
+      @event = Event.new event_params
+    end
   end
 
   def save_event(option)
