@@ -1,5 +1,4 @@
 class SubscribersController < ApplicationController
-
   def new
     @subscriber = Subscriber.new
   end
@@ -14,5 +13,4 @@ class SubscribersController < ApplicationController
       render 'new'
     end
   end
-
 end

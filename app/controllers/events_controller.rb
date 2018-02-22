@@ -1,5 +1,4 @@
 class EventsController < ApplicationController
-
   def index
     load_events
   end
@@ -26,14 +25,15 @@ class EventsController < ApplicationController
     @events = @events.location_search(params[:location]) if params[:location].present?
     @events = @events.event_handler_search(params[:event_handler]) if params[:event_handler].present?
     if params[:status].present?
-      @events = case params[:status]
-                  when 'before'
-                    @events.before_now(DateTime.now)
-                  when 'after'
-                    @events.after_now(DateTime.now)
-                  else
-                    @events
-                end
+      @events =
+        case params[:status]
+        when 'before'
+          @events.before_now(DateTime.now)
+        when 'after'
+          @events.after_now(DateTime.now)
+        else
+          @events
+        end
     end
 
     # Pagination
@@ -57,5 +57,4 @@ class EventsController < ApplicationController
 
     cal.to_ical
   end
-
 end

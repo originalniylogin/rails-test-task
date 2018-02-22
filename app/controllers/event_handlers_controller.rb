@@ -1,5 +1,4 @@
 class EventHandlersController < ApplicationController
-
   def index
     load_event_handlers
   end
@@ -21,5 +20,4 @@ class EventHandlersController < ApplicationController
     @event_handler = EventHandler.find(params[:id])
     @events = @event_handler.events
   end
-
 end

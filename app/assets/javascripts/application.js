@@ -16,4 +16,5 @@
 //= require moment
 //= require moment/ru
 //= require jquery
+//= require bootstrap-sprockets
 //= require bootstrap-datetimepicker

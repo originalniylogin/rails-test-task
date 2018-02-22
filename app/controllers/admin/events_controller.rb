@@ -1,5 +1,4 @@
 class Admin::EventsController < AdminController
-
   def index
     load_events
   end
@@ -33,6 +32,14 @@ class Admin::EventsController < AdminController
     redirect_to admin_events_path
   end
 
+  def email_subscribers
+    load_event
+    Subscriber.all.each do |sub|
+      SubscriberMailer.notification_email(sub, @event).deliver_later
+    end
+    redirect_to admin_event_path(@event)
+  end
+
   private
 
   def load_events
@@ -44,14 +51,15 @@ class Admin::EventsController < AdminController
     @events = @events.location_search(params[:location]) if params[:location].present?
     @events = @events.event_handler_search(params[:event_handler]) if params[:event_handler].present?
     if params[:status].present?
-      @events = case params[:status]
-                  when 'before'
-                    @events.before_now(DateTime.now)
-                  when 'after'
-                    @events.after_now(DateTime.now)
-                  else
-                    @events
-                end
+      @events =
+        case params[:status]
+        when 'before'
+          @events.before_now(DateTime.now)
+        when 'after'
+          @events.after_now(DateTime.now)
+        else
+          @events
+        end
     end
 
     # Pagination
@@ -74,20 +82,23 @@ class Admin::EventsController < AdminController
     if @event.save
       redirect_to admin_event_path @event
     else
-      flash.now[:danger] = @event.errors;
+      flash.now[:danger] = @event.errors
       render option
     end
   end
 
   def event_params
     event_params = params[:event]
-    event_params ? event_params.permit(:name,
-                                       :location,
-                                       :description,
-                                       :url,
-                                       :event_handler_id,
-                                       :starts_at,
-                                       :image) : {}
+    if event_params
+      event_params.permit(:name,
+                          :location,
+                          :description,
+                          :url,
+                          :event_handler_id,
+                          :starts_at,
+                          :image)
+    else
+      {}
+    end
   end
-
 end

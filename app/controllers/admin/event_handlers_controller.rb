@@ -1,5 +1,4 @@
 class Admin::EventHandlersController < ApplicationController
-
   def index
     load_event_handlers
   end
@@ -58,7 +57,7 @@ class Admin::EventHandlersController < ApplicationController
     if @event_handler.save
       redirect_to admin_event_handler_path @event_handler
     else
-      flash.now[:danger] = @event_handler.errors;
+      flash.now[:danger] = @event_handler.errors
       render option
     end
   end
@@ -67,5 +66,4 @@ class Admin::EventHandlersController < ApplicationController
     event_handler_params = params[:event_handler]
     event_handler_params ? event_handler_params.permit(:name, :description) : {}
   end
-
 end

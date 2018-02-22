@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class SubscriberTest < ActiveSupport::TestCase
-
   def setup
     @subscriber = Subscriber.new(email: 'sub@example.com')
   end
@@ -39,5 +38,4 @@ class SubscriberTest < ActiveSupport::TestCase
     @subscriber.save
     assert !dup.valid?
   end
-
 end

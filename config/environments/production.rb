@@ -80,7 +80,7 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
+  if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
@@ -99,12 +99,11 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   ActionMailer::Base.smtp_settings = {
-      :user_name => ENV["SENDGRID_USERNAME"],
-      :password => ENV["SENDGRID_PASSWORD"],
-      :address => 'smtp.sendgrid.net',
-      :port => 587,
-      :authentication => :plain,
-      :enable_starttls_auto => true
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_PASSWORD'],
+    address: 'smtp.sendgrid.net',
+    port: 2525,
+    authentication: :plain,
+    enable_starttls_auto: true,
   }
-
 end

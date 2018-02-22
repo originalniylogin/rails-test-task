@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class AdminsLoginTest < ActionDispatch::IntegrationTest
-
   def setup
     @admin = admins(:overlord)
   end
@@ -35,5 +34,4 @@ class AdminsLoginTest < ActionDispatch::IntegrationTest
 
     assert_select 'a[href=?]', admin_logout_path, count: 0
   end
-
 end

@@ -29,11 +29,18 @@
 <% end %>
 
 <div class="container">
-  <%= bootstrap_flash %>
+  <% flash.each do |type, message| %>
+    <div class="alert-<%= bootstrap_class_for(type) %> well-sm">
+      <% Array(message).each do |msg| %>
+        <%= msg %><br \>
+      <% end %>
+    </div>
+  <% end %>
 
   <%= yield %>
 
   <footer>
+    <p><%= ENV["SENDGRID_USERNAME"] %></p>
   </footer>
 </div> <!-- /container -->
 

@@ -1,5 +1,4 @@
 class AdminController < ApplicationController
-
   before_action :require_login
 
   private
@@ -9,5 +8,4 @@ class AdminController < ApplicationController
       redirect_to admin_login_path
     end
   end
-
 end

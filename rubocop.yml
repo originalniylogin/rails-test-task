@@ -1,6 +1,9 @@
 AllCops:
   Exclude:
     - db/schema.rb
+    - db/seeds.rb
+    - config/**/*
+    - bin/*
     - db/migrate/*
     - node_modules/**/*
   TargetRubyVersion: 2.4

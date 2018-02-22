@@ -10,21 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180218125233) do
+ActiveRecord::Schema.define(version: 20180222080733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "admins", force: :cascade do |t|
-    t.string "login"
-    t.string "password_digest"
+    t.string "login", null: false
+    t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["login"], name: "index_admins_on_login", unique: true
   end
 
   create_table "event_handlers", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 20180218125233) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string "location"
-    t.string "name"
+    t.string "location", null: false
+    t.string "name", null: false
     t.text "description"
     t.string "url"
-    t.bigint "event_handler_id"
-    t.datetime "starts_at"
+    t.bigint "event_handler_id", null: false
+    t.datetime "starts_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_file_name"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20180218125233) do
   end
 
   create_table "subscribers", force: :cascade do |t|
-    t.string "email"
+    t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_subscribers_on_email", unique: true

@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class AdminTest < ActiveSupport::TestCase
-
   def setup
     @admin = Admin.new(login: 'example', password: 'example')
   end
@@ -30,5 +29,4 @@ class AdminTest < ActiveSupport::TestCase
     @admin.password = ' ' * 6
     assert !@admin.valid?
   end
-
 end

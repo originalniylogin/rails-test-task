@@ -1,5 +1,4 @@
 class SubscriberMailer < ApplicationMailer
-
   include SendGrid
 
   def notification_email(subscriber, event)
@@ -10,5 +9,4 @@ class SubscriberMailer < ApplicationMailer
   def test_email(subscriber)
     mail(to: subscriber.email, subject: 'Test')
   end
-
 end

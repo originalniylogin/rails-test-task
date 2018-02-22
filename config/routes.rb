@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root 'welcome#index'
   get 'welcome/index'
   get '/events', to: 'events#index', as: :events
@@ -16,6 +15,6 @@ Rails.application.routes.draw do
     delete '/logout', to: 'sessions#destroy'
     resources :event_handlers
     resources :events
+    get '/event/:id/email_subscribers', to: 'events#email_subscribers', as: :email_subs
   end
-
 end

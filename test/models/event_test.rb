@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class EventTest < ActiveSupport::TestCase
-
   def setup
     @event_handler = EventHandler.new(name: 'Exmaple')
     @event = Event.new(name: 'Exmaple',
@@ -35,5 +34,4 @@ class EventTest < ActiveSupport::TestCase
     @event.save
     assert !dup.valid?
   end
-
 end

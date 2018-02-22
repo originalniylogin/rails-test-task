@@ -1,5 +1,4 @@
 module Admin::SessionsHelper
-
   def admin_log_in(admin)
     session[:admin_id] = admin.id
   end
@@ -16,5 +15,4 @@ module Admin::SessionsHelper
     session.delete(:admin_id)
     @current_admin = nil
   end
-
 end

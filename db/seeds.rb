@@ -5,20 +5,20 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-Admin.create!(login: "admin", password: "admin")
+Admin.create!(login: 'admin', password: 'admin')
 
 def seed_image(file_name)
   File.open(File.join(Rails.root, "app/assets/images/seeds/#{file_name}"))
 end
 
 event_handlers = EventHandler.create!([
-   {name: "Михаил Филиппенко", description: "fastreport.ru - работаем для программистов"},
-   {name: "Анастасия Осецкая", description: "Основатель сообщества новаторов - Эволюция Сознания, организатор мероприятий, маркетолог, менеджер проектов."}
+   {name: 'Михаил Филиппенко', description: 'fastreport.ru - работаем для программистов'},
+   {name: 'Анастасия Осецкая', description: 'Основатель сообщества новаторов - Эволюция Сознания, организатор мероприятий, маркетолог, менеджер проектов.'}
 ])
 
 Event.create!(
-    location: "Россия, Ростов-на-Дону, улица Суворова, 91, эт. 7, Южный ИТ-парк",
-    name: "ISDEF Start - 2018 IT Export Part",
+    location: 'Россия, Ростов-на-Дону, улица Суворова, 91, эт. 7, Южный ИТ-парк',
+    name: 'ISDEF Start - 2018 IT Export Part',
     description: "Бесплатная мини-конференция в рамках конференции Ассоциации независимых ИТ-экспортеров ISDEF для"\
                  " стартапов в области software, mobile apps и hardware, для выходящих на зарубежные рынки проектов."\
                  " На базе собственных кейсов. Без рекламы, только с регистрацией и без смс☺\n\n"\
@@ -38,15 +38,15 @@ Event.create!(
                  "CEO компании с рынка информационной безопасности с оборотом 0,5 млрд. рублей\n"\
                  "CEO компании, профессионалов в области защиты интеллектуальной собственности\n"\
                  "Глава российского подразделения трансграничной e-commerce компании",
-    url: "https://isdef-start2018.timepad.ru/event/643874/",
+    url: 'https://isdef-start2018.timepad.ru/event/643874/',
     event_handler_id: event_handlers[0].id,
     starts_at: DateTime.new(2018, 4, 21, 9),
-    image: seed_image("seed2.png")
+    image: seed_image('seed2.png'),
 )
 
 Event.create!(
-    location: "Россия, Ростов-на-Дону, улица Суворова, 91, эт. 7, Южный ИТ-парк",
-    name: "ISDEF Spring 2018",
+    location: 'Россия, Ростов-на-Дону, улица Суворова, 91, эт. 7, Южный ИТ-парк',
+    name: 'ISDEF Spring 2018',
     description: "ИТ-бизнесмен? А не пойти ли вам... на экспорт?\n\n"\
                  "20-21 апреля в Р/н/Д пройдет ISDEF Spring, регулярная конференция для руководителей и владельцев"\
                  " ИТ-бизнесов вокруг собственного ПО и услуг для продуктовых компаний - о том, как сделать ваш"\
@@ -55,15 +55,15 @@ Event.create!(
                  " рублей по купону ROSTOV100 (исключительно для участников Ростовской ИТ-тусовки).\n\n"\
                  " Если бы я 15 лет назад обладал всем теми знаниями, которыми благодаря этим конференциям"\
                  " обладаю сейчас, то на нынешние масштабы мы вышли бы лет 12 назад.",
-    url: "http://2018s.isdef.org/",
+    url: 'http://2018s.isdef.org/',
     event_handler_id: event_handlers[0].id,
     starts_at: DateTime.new(2018, 4, 20, 9),
-    image: seed_image("seed2.png")
+    image: seed_image('seed2.png'),
 )
 
 Event.create!(
-    location: "улица Максима Горького, 151, Культурный центр \"Правда\" ( 2й этаж)",
-    name: "БЛОКЧЕЙН-ТЕХНОЛОГИИ В МИРОВОЙ ЭКОНОМИКЕ И БИЗНЕСЕ. MEETUP",
+    location: 'улица Максима Горького, 151, Культурный центр "Правда" ( 2й этаж)',
+    name: 'БЛОКЧЕЙН-ТЕХНОЛОГИИ В МИРОВОЙ ЭКОНОМИКЕ И БИЗНЕСЕ. MEETUP',
     description: "26 февраля 2018г.(понедельник) в 18 00, проект # ЛичнымПримером и сообщество новаторов Эволюция"\
                  " Сознания проводит первое совместное мероприятие для владельцев бизнеса, IT разработчиков, стартапов"\
                  " и предпринимателей нового поколения.\n\n"\
@@ -72,8 +72,8 @@ Event.create!(
                  " посмотрим на живые проекты и пообщаемся с представителями бизнеса из реального сектора экономики."\
                  " Узнаем о новых тенденциях и трендах в обществе. Это уникальная возможность пообщаться с теми,"\
                  " кто на передовой блокчейн индустрии!",
-    url: "https://evo-events.timepad.ru/event/662591/",
+    url: 'https://evo-events.timepad.ru/event/662591/',
     event_handler_id: event_handlers[1].id,
     starts_at: DateTime.new(2018, 2, 17, 18),
-    image: seed_image("seed1.png")
+    image: seed_image('seed1.png'),
 )
